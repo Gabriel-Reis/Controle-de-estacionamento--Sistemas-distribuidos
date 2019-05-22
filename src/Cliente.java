@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class Cliente {
 	public static void main(String[] args) {
 		try {
-			IEstacionamento EstaRMI = (IEstacionamento)Naming.lookup("//localhost:3006/Estacionamento");	
+			IEstacionamento EstaRMI = (IEstacionamento)Naming.lookup("//localhost:3007/Estacionamento");	
 			Teste(EstaRMI);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null,e);
