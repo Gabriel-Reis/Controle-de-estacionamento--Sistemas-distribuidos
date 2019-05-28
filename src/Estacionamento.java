@@ -1,5 +1,3 @@
-
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDateTime;
@@ -9,7 +7,7 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class Estacionamento extends UnicastRemoteObject implements IEstacionamento {
 
-	private static ArrayList<Veiculo> estacionamento = new ArrayList<Veiculo>();
+	private ArrayList<Veiculo> estacionamento = new ArrayList<Veiculo>();
 	
 	public Estacionamento() throws RemoteException{
 	}
@@ -34,7 +32,7 @@ public class Estacionamento extends UnicastRemoteObject implements IEstacionamen
 			return true;
 		}
 		else {
-			float valor = CalcularValor(v);
+			//float valor = CalcularValor(v);
 			pagando.setPago(true);
 			return true;
 		}
@@ -67,7 +65,6 @@ public class Estacionamento extends UnicastRemoteObject implements IEstacionamen
         	return 75;
         else
         	return 200;
-        
 	}
 	
 	public String getResume() throws RemoteException {
@@ -75,11 +72,9 @@ public class Estacionamento extends UnicastRemoteObject implements IEstacionamen
 		for(Veiculo veic: estacionamento) {
 			ret += veic.getPlaca();
 			if (veic.isPago())
-				ret += " (P)";
-			ret += "_";
+				ret += " ( P )";
+			ret += "\n";
 		}
-		
-		
 		return ret;
 	}
 
@@ -87,5 +82,4 @@ public class Estacionamento extends UnicastRemoteObject implements IEstacionamen
 	public void Limpar() throws RemoteException {
 		estacionamento.clear();
 	}
-	
 }

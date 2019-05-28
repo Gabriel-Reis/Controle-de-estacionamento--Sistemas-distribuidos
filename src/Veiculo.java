@@ -1,4 +1,3 @@
-
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.time.LocalDateTime;
@@ -25,24 +24,13 @@ public class Veiculo implements Remote, Serializable{
 		//format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 	}
 
-	public String getPlaca() {
-		return placa;
-	}
+	public String getPlaca() { return placa; }
 
-	public LocalDateTime getEntrada() {
-		return entrada;
-	}
-
+	public LocalDateTime getEntrada() { return entrada; }
 	
-	
-	public boolean isPago() {
-		return pago;
-	}
+	public boolean isPago() { return pago; }
 
-
-	public void setPago(boolean pago) {
-		this.pago = pago;
-	}
+	public void setPago(boolean pago) { this.pago = pago; }
 
 	@Override
 	public String toString() {

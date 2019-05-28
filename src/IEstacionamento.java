@@ -1,5 +1,3 @@
-
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -12,6 +10,4 @@ public interface IEstacionamento extends Remote {
 	public float CalcularValor(Veiculo v) throws RemoteException;
 	public String getResume() throws RemoteException;
 	public void Limpar() throws RemoteException;
-	
-	
 }
