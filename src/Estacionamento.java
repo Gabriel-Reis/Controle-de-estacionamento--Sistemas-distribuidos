@@ -8,10 +8,11 @@ import java.util.ArrayList;
 public class Estacionamento extends UnicastRemoteObject implements IEstacionamento {
 
 	private ArrayList<Veiculo> estacionamento = new ArrayList<Veiculo>();
+	private ArrayList<Historico> relatorio = new ArrayList<Historico>();
 	
 	public Estacionamento() throws RemoteException{
 	}
-
+	
 	public void Entrar(Veiculo v) throws RemoteException {
 		estacionamento.add(v);
 	}
@@ -19,6 +20,7 @@ public class Estacionamento extends UnicastRemoteObject implements IEstacionamen
 	public boolean Sair(Veiculo v) throws RemoteException  {
 		Veiculo saindo = BuscarEstacionado(v);
 		if(saindo != null && saindo.isPago()) {
+			AddRelatorio(saindo);
 			estacionamento.remove(saindo);
 			return true;
 		}
@@ -26,13 +28,29 @@ public class Estacionamento extends UnicastRemoteObject implements IEstacionamen
 			return false;
 	}
 	
+	public boolean AddRelatorio(Veiculo v) throws RemoteException {
+		String placa = v.getPlaca();
+		long tempo = ChronoUnit.MINUTES.between(v.getEntrada(), LocalDateTime.now());
+		float valor = CalcularValor(v);
+		
+		for(Historico Hist: relatorio) {
+			if(Hist.getPlaca().equals(placa)) {
+				Hist.addSaida(tempo, valor);
+				return true;
+			}
+		}
+		relatorio.add(new Historico(placa,tempo,valor));
+		return true;
+	}
+	
 	public boolean pagar(Veiculo v) throws RemoteException  {
 		Veiculo pagando = BuscarEstacionado(v);
+		if(pagando == null)
+			return false;
 		if(pagando.isPago()) {
 			return true;
 		}
 		else {
-			//float valor = CalcularValor(v);
 			pagando.setPago(true);
 			return true;
 		}
@@ -77,9 +95,28 @@ public class Estacionamento extends UnicastRemoteObject implements IEstacionamen
 		}
 		return ret;
 	}
+	
+	public String getRelatorio() throws RemoteException {
+		String ret = "";
+		for(Historico Historico: relatorio) {
+			ret += Historico.toString();
+			ret += "\n";
+		}
+		return ret;
+	}
 
 	@Override
 	public void Limpar() throws RemoteException {
 		estacionamento.clear();
+		relatorio.clear();
 	}
+
+	public synchronized ArrayList<Veiculo> CloneEstacionamento() throws RemoteException{
+		return estacionamento;
+	}
+	
+	public synchronized ArrayList<Historico> CloneRelatorio() throws RemoteException {
+		return relatorio;
+	}
+
 }
