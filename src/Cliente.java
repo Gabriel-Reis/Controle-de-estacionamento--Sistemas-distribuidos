@@ -1,5 +1,6 @@
-//import java.net.MalformedURLException;
+import java.net.MalformedURLException;
 import java.rmi.Naming;
+import java.rmi.NotBoundException;
 //import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import javax.swing.JOptionPane;
@@ -111,6 +112,7 @@ public class Cliente {
 					add = true;
 				}catch (RemoteException re) {
 					JOptionPane.showMessageDialog(null, "One server off");
+					e=null;
 				}
 			}
 		}
@@ -127,6 +129,7 @@ public class Cliente {
 					add = true;
 				}catch (RemoteException re) {
 					JOptionPane.showMessageDialog(null, "One server off");
+					e=null;
 				}
 			}
 		}
@@ -142,6 +145,7 @@ public class Cliente {
 					add = true;
 				}catch (RemoteException re) {
 					JOptionPane.showMessageDialog(null, "One server off");
+					e=null;
 				}
 			}
 		}
