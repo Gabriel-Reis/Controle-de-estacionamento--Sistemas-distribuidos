@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import connection.models.Historico;
 import connection.models.Veiculo;
+import view.scenes.servidor.ServerController;
 
 public interface IEstacionamento extends Remote {
 	

@@ -6,6 +6,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 import connection.util.IEstacionamento;
+import view.scenes.servidor.ServerController;
 
 @SuppressWarnings("serial")
 public class Estacionamento extends UnicastRemoteObject implements IEstacionamento {
