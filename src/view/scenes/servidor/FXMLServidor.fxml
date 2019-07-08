@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" layoutX="15.0" layoutY="120.0" style="-fx-background-color: #dbdbdb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label layoutX="282.0" layoutY="14.0" text="SERVER">
+                     <font>
+                        <Font name="Roboto Black" size="35.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" layoutX="337.0" layoutY="170.0">
+                     <children>
+                        <Label text="port:">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="txt_Port" text="1111">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding></Label>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </VBox>
+            <TextArea fx:id="txta_Log" editable="false" layoutX="14.0" layoutY="130.0" prefHeight="400.0" prefWidth="250.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="15.0" />
+            <JFXButton fx:id="btn_LimparLog" layoutX="108.0" layoutY="570.0" prefHeight="33.0" text="Atualizar Manualmente">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="293.0" layoutY="111.0">
+         <children>
+            <HBox alignment="BASELINE_LEFT" layoutX="347.0" layoutY="110.0">
+               <children>
+                  <Label fx:id="txt_NumVeiculosPagos" text="10">
+                     <font>
+                        <Font name="Roboto Black" size="37.0" />
+                     </font>
+                  </Label>
+                  <Label text="VEÍCULOS PAGOS">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Roboto Light" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="BASELINE_LEFT">
+               <children>
+                  <Label fx:id="txt_NumVeiculosEstacionados" text="10">
+                     <font>
+                        <Font name="Roboto Black" size="37.0" />
+                     </font>
+                  </Label>
+                  <Label text="VEÍCULOS ESTACIONADOS">
+                     <font>
+                        <Font name="Roboto Light" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXButton fx:id="btn_GerarRelatorio" layoutX="325.0" layoutY="526.0" prefHeight="60.0" prefWidth="130.0" text="GERAR RELAÓRIO" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="45.0" />
+   </children>
+</AnchorPane>
