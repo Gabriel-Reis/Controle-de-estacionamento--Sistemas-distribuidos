@@ -1,0 +1,9 @@
+Como executar
+
+Passo 1)
+	Help -> InstallNewSoftware -> 
+	e(fx)clipse - IDE - Updatesite - http://download.eclipse.org/efxclipse/updates-released/2.1.0/site/
+	-> Instalar componentes
+Passo 2) Instalar .exe da pasta SceneBuilder
+Passo 3) Window -> Preference -> JAvaFX -> Colocar PAth do executável SceneBuilder
+Passo 4) Projeto -> Botão Direito -> BuildPath -> Add ExternalArchives -> Selecionar .jar da pasta BuildPath
